@@ -5,11 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-# puts "> Deleting list"
-# list.destroy_all
-# puts "> Deleting bookmarks"
-# bookmark.destroy_all
-puts "> Deleting movies"
+ok = '>  Seeding completed'
+
+puts '> Deleting list'
+List.destroy_all
+puts '> Deleting bookmarks'
+Bookmark.destroy_all
+puts '> Deleting movies'
 Movie.destroy_all
 puts '> Records deleted'
 
@@ -20,15 +22,18 @@ mov2 = Movie.create(title: "The Shawshank Redemption", overview: "Framed in the 
 mov3 = Movie.create(title: "Titanic", overview: "101-year-old Rose DeWitt Bukater tells the story of her life aboard the Titanic.", poster_url: "https://image.tmdb.org/t/p/original/9xjZS2rlVxm8SFx8kPC3aIGCOYQ.jpg", rating: 7.9)
 mov4 = Movie.create(title: "Ocean's Eight", overview: "Debbie Ocean, a criminal mastermind, gathers a crew of female thieves to pull off the heist of the century.", poster_url: "https://image.tmdb.org/t/p/original/MvYpKlpFukTivnlBhizGbkAe3v.jpg", rating: 7.0)
 
-puts '> Seeding completed'
+puts ok
 
 puts 'Seeding list database...'
 ls1 = List.create(name: 'Drama')
 ls2 = List.create(name: 'All time favourites')
 ls3 = List.create(name: 'Girl Power')
 
-puts '> Seeding completed'
+puts ok
 
 puts 'Seeding Bookmark database...'
-Bookmark.create!(comment: 'recommended by Mr.X', movie_id: mov1.id, list_id: ls2.id)
-puts '> Seeding completed'
+Bookmark.create!(comment: 'recommended by Mr.X', movie_id: mov1.id, list_id: ls3.id)
+Bookmark.create!(comment: 'Crime movies', movie_id: mov3.id, list_id: ls2.id)
+Bookmark.create!(comment: 'Romantic movie', movie_id: mov2.id, list_id: ls1.id)
+Bookmark.create!(comment: 'Bruhh...', movie_id: mov4.id, list_id: ls2.id)
+puts ok
