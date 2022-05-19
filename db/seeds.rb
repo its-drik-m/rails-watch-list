@@ -1,10 +1,7 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+
+# variable to store text message after databse seed
 ok = '>  Seeding completed'
 
 puts '> Deleting list'
@@ -37,3 +34,12 @@ Bookmark.create!(comment: 'Crime movies', movie_id: mov3.id, list_id: ls2.id)
 Bookmark.create!(comment: 'Romantic movie', movie_id: mov2.id, list_id: ls1.id)
 Bookmark.create!(comment: 'Bruhh...', movie_id: mov4.id, list_id: ls2.id)
 puts ok
+
+
+# require 'json'
+# require 'open-uri'
+
+
+# api_key = ''
+# poster_url = 'https://image.tmdb.org/t/p/original/'
+# url = "https://api.themoviedb.org/3/movie/popular?api_key=#{api_key}"
